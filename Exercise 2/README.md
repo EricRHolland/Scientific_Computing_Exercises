@@ -1,5 +1,5 @@
-This is the first exercise for the Freecodecamp.com course entitled:
-"Scientific Computing with Python". This exercise is to create a arithmetic calculator that can deal with addition and subtraction.
+This is the second exercise for the Freecodecamp.com course entitled:
+"Scientific Computing with Python". This exercise is to create a budget app that can do deposits, withdrawals,
 
 # Description
 
