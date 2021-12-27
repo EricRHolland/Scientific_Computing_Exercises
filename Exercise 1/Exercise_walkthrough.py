@@ -10,12 +10,21 @@ def arithmetic_arranger(problems, calc=False):
         problems (list[str]): Input list with problems
         calculate_solution Defaults to False.
     """
+
+    ##Step 1: Create the error messages
+    # I knew immediately that I would want to break these messages out into variable names because of my training
     import re
 
     ERR_SIZE = "Error: Too many problems."
     ERR_OP = "Error: Operator must be '+' or '-'."
     ERR_NUM = "Error: Numbers must only contain digits."
     ERR_LEN = "Error: Numbers cannot be more than four digits."
+
+
+# Next, I wanted to think about the end product? What are the maximum number of characters I would have in a solution?
+# 4 is the max so you want 5 max characters for the solution, but what about the operator +-?
+# we need to add 2 spaces to the bottom row to account for the operator and the space between the +- and the number
+#Right now, I just want 4 spaces and creating a full output of the rows and results.
 
     SPACE = " " * 4
     top_row = ""
