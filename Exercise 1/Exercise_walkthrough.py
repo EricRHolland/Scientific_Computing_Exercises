@@ -80,15 +80,21 @@ This means grabbing stuff that
         length = max(len(a), len(b)) + 2
         #This will give you max 6 character right justified top part
         top = a.rjust(length)
+
+
         # subtract 1 from the length to account for the operator being there, otherwise the numbers lag
         # making it look weird.
         # Why the -1? Because it would otherwise justify a max 6 char bot part with 7 characters on a line if the length isnt modified.
-        
         bot = operator + b.rjust(length - 1)
+
+        # The spacer needs to be length max 6 char like before otherwise the top part wont match.
+        # creating an empty string for the result so we can abuse the str methods to align our result.
         spacer = "-" * length
         result = "".rjust(length)
 
+
         if calc:
+            # Honestly not quite sure how this variable is assigned either inside or outside the tuple still? Could be wrong though
             # convert the strs to ints and add or sub the operated stuff
             # convert the result back to str so it's easier to handle with
             if operator == "+":
