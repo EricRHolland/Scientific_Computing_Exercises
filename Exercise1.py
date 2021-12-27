@@ -5,9 +5,6 @@ Created on Tue Nov 30 16:46:41 2021
 @author: EricH
 """
 
-
-
-
 def arithmetic_arranger(problems, calc=False):
     """
         problems (list[str]): Input list with problems
