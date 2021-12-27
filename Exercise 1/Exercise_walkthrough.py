@@ -104,17 +104,28 @@ This means grabbing stuff that
                 result = str(int(a) - int(b)).rjust(length)
 
         if problem == problems[-1]:
-            #This could also be done by doing a len(problems) - 1,
+            #This could also be done by doing a len(problems) - 1 and assigning that to a var and calling it in the bracket.
+            # Did it this way because its faster to reference the end of a list with the -1 part
+
             top_row += top
             bot_row += bot
             spacers += spacer
             results += result
+            # So this part is fun because it is stops the writing of the loop to the lines.
+            # This will close it and not add any more space to the end of the lines.
+            # Instead of creating one individual box with arithmetic, I put them all into strings and print the strings in order
+
         else:
+            # This says: If the problem we are working on is NOT the last, add it to the 4 strings and add more space after it
+            # This will let us keep building the lines since it isn't the last one in the list we defined earlier.
             top_row += top + SPACE
             bot_row += bot + SPACE
             spacers += spacer + SPACE
             results += result + SPACE
 
+
+    # This line finally shows the difference in the calc T/F cases. If it stays false, it will only return whitespace as the results lines
+    # If it is changed to true
     if calc:
         arranged_problems = (
             top_row + "\n" + bot_row + "\n" + spacers + "\n" + results
