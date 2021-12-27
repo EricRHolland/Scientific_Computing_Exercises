@@ -9,15 +9,8 @@ This includes clear variable names and defining constants instead of inserting r
 
 The guidelines and success metrics for this program are copied below for reference.
 
----
-id: 5e44412c903586ffb414c94c
-title: Arithmetic Formatter
-challengeType: 10
-forumTopicId: 462359
-dashedName: arithmetic-formatter
----
 
-# --description--
+# Description
 
 You will be [working on this project with our Replit starter code](https://replit.com/github/freeCodeCamp/boilerplate-arithmetic-formatter).
 
@@ -26,7 +19,7 @@ We are still developing the interactive instructional part of the Python curricu
 - [Python for Everybody Video Course](https://www.freecodecamp.org/news/python-for-everybody/) (14 hours)
 - [Learn Python Video Course](https://www.freecodecamp.org/news/learn-python-video-course/) (10 hours)
 
-# --instructions--
+# Instructions
 
 Students in primary school often arrange arithmetic problems vertically to make them easier to solve. For example, "235 + 52" becomes:
 
@@ -101,7 +94,7 @@ The unit tests for this project are in `test_module.py`. We are running the test
 
 Copy your project's URL and submit it below.
 
-# --hints--
+# Hints
 
 It should correctly format an arithmetic problem and pass all tests.
 
@@ -109,7 +102,7 @@ It should correctly format an arithmetic problem and pass all tests.
 
 ```
 
-# --solutions--
+# Solutions
 
 ```js
 /**
