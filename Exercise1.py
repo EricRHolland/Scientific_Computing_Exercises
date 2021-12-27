@@ -39,7 +39,10 @@ def arithmetic_arranger(problems, calc=False):
 
         ## All errors that are required are covered now.
         ## Onto the fun stuff!
-        listref.append((a,op,b))
+        listref.append(cleaner(a,op,b,calc))
+
+
+
 
 
 
@@ -53,4 +56,14 @@ def arithmetic_arranger(problems, calc=False):
 def cleaner(a,op,b,calc):
     x = int(a)
     y = int(b)
+    result = x+y if op == '+' else x-y
+    sign_shift = result if result > 0 else 0-result
+    column_width = max(len(a),len(b), len(str(result))) if calc is True else max(len(a),len(b))
+    result = str(result)
+    column_width = column_width + 2
+    ##.rjust is justifing the text, overall thing gives a list of the 3 lines you need for every calculation
+    fin_result = [a.rjust(column_width), op + " " + b.rjust(column_width - 2), '-' * column_width]
+    if calc is True:
+        fin_result.append(result.rjust(column_width))
+    return fin_result
 
