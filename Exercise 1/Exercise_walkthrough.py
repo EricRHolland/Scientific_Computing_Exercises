@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 30 16:46:41 2021
-
-@author: EricH
-"""
-
 def arithmetic_arranger(problems, calc=False):
     """
         problems (list[str]): Input list with problems
@@ -125,7 +118,8 @@ This means grabbing stuff that
 
 
     # This line finally shows the difference in the calc T/F cases. If it stays false, it will only return whitespace as the results lines
-    # If it is changed to true
+    # If it is changed to true, it will not show the results and instead give us the spacers (blank space created earlier)
+
     if calc:
         arranged_problems = (
             top_row + "\n" + bot_row + "\n" + spacers + "\n" + results
@@ -134,3 +128,12 @@ This means grabbing stuff that
         arranged_problems = top_row + "\n" + bot_row + "\n" + spacers
 
     return arranged_problems
+
+    # This passes all the tests that the replit autograder uses. Woohoo!
+
+#Summary thought process and breakthroughs
+# 1) Definitely a list iteration problem since it has multiple problems, so we need to know how to split a tuple
+# 2) Need to know how to iterate through a list using for loops
+# 3) Realized it was much easier to create a string readout of the 4 lines that is justified instead of doing max 5 separate iterations with space.
+# 4) created spacers and used logic to decide the length between problems, and this ties our approach together.
+# 5) Used the spacers to give blank space if calc boolean variable is not touched by input. Then it's solved!
