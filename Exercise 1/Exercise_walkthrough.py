@@ -32,6 +32,9 @@ def arithmetic_arranger(problems, calc=False):
     spacers = ""
     results = ""
 
+
+# Before we convert anything to int, take advantage of string and list properties, like len, to get stuff that will give errors.
+This means grabbing stuff that
     if len(problems) > 5:
         return ERR_SIZE
 
