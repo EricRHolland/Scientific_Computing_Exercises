@@ -85,39 +85,39 @@ def arithmetic_arranger(problems, calc=False):
     results = ""
 
     if len(problems) > 5:
-        return "Error: Too many problems."
+        return ERR_SIZE
 
     # loop through the list of problems and apply every operation seperatly
     for problem in problems:
         active_problem = problem.split()
-        num_1: str = active_problem[0]
-        operator: str = active_problem[1]
-        num_2: str = active_problem[2]
+        a = active_problem[0]
+        operator = active_problem[1]
+        b = active_problem[2]
 
-        if operator not in ["+", "-"]:
-            return "Error: Operator must be '+' or '-'."
+        if operator != "+" and operator != "-":
+            return ERR_OP
 
-        if not (num_1.isdecimal() and num_2.isdecimal()):
-            return "Error: Numbers must only contain digits."
+        if not (a.isdecimal() and b.isdecimal()):
+            return ERR_NUM
 
-        if (len(num_1) and len(num_2)) > 4:
-            return "Error: Numbers cannot be more than four digits."
+        if (len(a) and len(b)) > 4:
+            return ERR_LEN
 
         # calculate the length of the longest operand and add 2
         # because of the operator and the needed space
-        length: int = max(len(num_1), len(num_2)) + 2
-        top: str = num_1.rjust(length)
-        bot: str = operator + num_2.rjust(length - 1)
-        spacer: str = "-" * length
-        result: str = "".rjust(length)
+        length = max(len(a), len(b)) + 2
+        top = a.rjust(length)
+        bot = operator + b.rjust(length - 1)
+        spacer = "-" * length
+        result = "".rjust(length)
 
-        if calculate_solution:
+        if calc:
             # convert the strs to ints and add or sub the operands
             # convert the result back to str
             if operator == "+":
-                result = str(int(num_1) + int(num_2)).rjust(length)
+                result = str(int(a) + int(b)).rjust(length)
             else:
-                result = str(int(num_1) - int(num_2)).rjust(length)
+                result = str(int(a) - int(b)).rjust(length)
 
         if problem == problems[-1]:
             top_row += top
@@ -130,8 +130,8 @@ def arithmetic_arranger(problems, calc=False):
             spacers += spacer + SPACE
             results += result + SPACE
 
-    if calculate_solution:
-        arranged_problems: str = (
+    if calc:
+        arranged_problems = (
             top_row + "\n" + bot_row + "\n" + spacers + "\n" + results
         )
     else:
