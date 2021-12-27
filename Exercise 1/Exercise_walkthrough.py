@@ -55,8 +55,17 @@ This means grabbing stuff that
         if operator != "+" and operator != "-":
             return ERR_OP
 
+
+        # cool way of checking if it is a number without using regex like in my commented out example. The previous way to do this is as follows:
+        # PROBLEM STATEMENTS IF SOMETHING GOES WRONG
+        # if regex.match(a) is None or regex.match(b) is None:
+        # return ERR_LEN
+        # In this case, the regex is defined:
+        # regex = re.compile(r'^[0-9]{1,4}$')
         if not (a.isdecimal() and b.isdecimal()):
             return ERR_NUM
+
+        # Takes advantage of a and b still being strings so we can see if they are less than 5 integers
 
         if (len(a) and len(b)) > 4:
             return ERR_LEN
@@ -67,6 +76,7 @@ This means grabbing stuff that
         # calculate the length of the longest operand and add 2
         # because of the operator and to separate the number and operator
         # .rjust is justifing the text, overall thing gives a list of the 3 lines you need for every calculation
+        # The + 2
         length = max(len(a), len(b)) + 2
         top = a.rjust(length)
         # subtract 1 from the length to account for the operator being there, otherwise the numbers lag
@@ -136,9 +146,7 @@ This means grabbing stuff that
 #         ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
 #         if len(a) > 4 or len(b) > 4:
 #             return ERR_LEN
-#         ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
-#         if regex.match(a) is None or regex.match(b) is None:
-#             return ERR_LEN
+
 #
 #         ## All errors that are required are covered now.
 #         ## Onto the fun stuff!
