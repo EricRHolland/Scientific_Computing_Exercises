@@ -84,6 +84,9 @@ def arithmetic_arranger(problems, calc=False):
 
     return arranged_problems
 
+# failed attempt below that tries to use regex to identify numbers and also can't deal well with setting
+# the show result to true for one problem and false for the others.
+#couldnt really figure out how to do that so had to google stack overflow for help.
 
 # import re
 #
