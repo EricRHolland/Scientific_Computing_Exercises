@@ -18,7 +18,7 @@ def arithmetic_arranger(problems, calc=False):
         return ERR_SIZE
 
     #set out the regex for later
-    regex = re.compile(problems, r'^[0-9]{1,4}$')
+    regex = re.compile(r'^[0-9]{1,4}$')
     #create your list
     listref = []
 
@@ -40,17 +40,14 @@ def arithmetic_arranger(problems, calc=False):
         ## All errors that are required are covered now.
         ## Onto the fun stuff!
         listref.append(cleaner(a,op,b,calc))
-
-
-
-
-
-
-
-
-
-
-
+    first_problem = listref[0]
+    format_spaces = " " * 4
+    for problem in listref[1:]:
+        for i in range(0, len(first_problem)):
+            first_problem[i] = first_problem[i] + format_spaces + problem[i]
+    if not calc:
+        first_problem = first_problem[0:3]
+    return '\n'.join(first_problem)
 
 
 def cleaner(a,op,b,calc):
@@ -67,3 +64,77 @@ def cleaner(a,op,b,calc):
         fin_result.append(result.rjust(column_width))
     return fin_result
 
+
+
+def arithmetic_arranger(problems, calc=False):
+    """
+        problems (list[str]): Input list with problems
+        calculate_solution Defaults to False.
+    """
+    import re
+
+    ERR_SIZE = "Error: Too many problems."
+    ERR_OP = "Error: Operator must be '+' or '-'."
+    ERR_NUM = "Error: Numbers must only contain digits."
+    ERR_LEN = "Error: Numbers cannot be more than four digits."
+
+    SPACE = " " * 4
+    top_row = ""
+    bot_row = ""
+    spacers = ""
+    results = ""
+
+    if len(problems) > 5:
+        return "Error: Too many problems."
+
+    # loop through the list of problems and apply every operation seperatly
+    for problem in problems:
+        active_problem = problem.split()
+        num_1: str = active_problem[0]
+        operator: str = active_problem[1]
+        num_2: str = active_problem[2]
+
+        if operator not in ["+", "-"]:
+            return "Error: Operator must be '+' or '-'."
+
+        if not (num_1.isdecimal() and num_2.isdecimal()):
+            return "Error: Numbers must only contain digits."
+
+        if (len(num_1) and len(num_2)) > 4:
+            return "Error: Numbers cannot be more than four digits."
+
+        # calculate the length of the longest operand and add 2
+        # because of the operator and the needed space
+        length: int = max(len(num_1), len(num_2)) + 2
+        top: str = num_1.rjust(length)
+        bot: str = operator + num_2.rjust(length - 1)
+        spacer: str = "-" * length
+        result: str = "".rjust(length)
+
+        if calculate_solution:
+            # convert the strs to ints and add or sub the operands
+            # convert the result back to str
+            if operator == "+":
+                result = str(int(num_1) + int(num_2)).rjust(length)
+            else:
+                result = str(int(num_1) - int(num_2)).rjust(length)
+
+        if problem == problems[-1]:
+            top_row += top
+            bot_row += bot
+            spacers += spacer
+            results += result
+        else:
+            top_row += top + SPACE
+            bot_row += bot + SPACE
+            spacers += spacer + SPACE
+            results += result + SPACE
+
+    if calculate_solution:
+        arranged_problems: str = (
+            top_row + "\n" + bot_row + "\n" + spacers + "\n" + results
+        )
+    else:
+        arranged_problems: str = top_row + "\n" + bot_row + "\n" + spacers
+
+    return arranged_problems
