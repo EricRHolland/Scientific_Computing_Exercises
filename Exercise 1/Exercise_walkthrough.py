@@ -38,9 +38,16 @@ This means grabbing stuff that
     if len(problems) > 5:
         return ERR_SIZE
 
-    # loop through the list of problems and apply every operation seperatly
+    # loop through the list of problems and apply every operation seperately
+    # So this problem requires me to solve many different +- operations at once, which means we have to split out the values from the tuple
+    # it is some tuples within a list as the input according to the sample input from the .readme.
+
     for problem in problems:
         active_problem = problem.split()
+        # Now that its been split, it appears as a list of a, operator, b, and a calc boolean
+        # Honestly not quite sure how the calc thing works if it's being passed through this split function or not.
+        # With that done, now we have a,operator, b that are still strings!
+        #use these strings to get the error messages to work.
         a = active_problem[0]
         operator = active_problem[1]
         b = active_problem[2]
