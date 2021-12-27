@@ -24,7 +24,9 @@ def arithmetic_arranger(problems, calc=False):
     for problem in problems:
 
         [a, op, b] = problem.split()
-
+        if op != "+" or op != "-":
+            return ERR_OP
+        
         listref.append((a,op,b))
 
 
