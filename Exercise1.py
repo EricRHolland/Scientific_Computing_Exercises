@@ -24,9 +24,15 @@ def arithmetic_arranger(problems, calc=False):
     for problem in problems:
 
         [a, op, b] = problem.split()
+
+        ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
         if op != "+" or op != "-":
             return ERR_OP
-        
+        ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
+        if len(a) > 4 or len(b) > 4:
+            return ERR_LEN
+
+        regex = re.findall(r'^[0-9]+')
         listref.append((a,op,b))
 
 
