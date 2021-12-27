@@ -76,11 +76,14 @@ This means grabbing stuff that
         # calculate the length of the longest operand and add 2
         # because of the operator and to separate the number and operator
         # .rjust is justifing the text, overall thing gives a list of the 3 lines you need for every calculation
-        # The + 2
+        # The + 2 as discussed earlier is for the space and the +-
         length = max(len(a), len(b)) + 2
+        #This will give you max 6 character right justified top part
         top = a.rjust(length)
         # subtract 1 from the length to account for the operator being there, otherwise the numbers lag
-        #making it look weird.
+        # making it look weird.
+        # Why the -1? Because it would otherwise justify a max 6 char bot part with 7 characters on a line if the length isnt modified.
+        
         bot = operator + b.rjust(length - 1)
         spacer = "-" * length
         result = "".rjust(length)
