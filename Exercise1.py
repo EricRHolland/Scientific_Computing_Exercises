@@ -17,6 +17,8 @@ def arithmetic_arranger(problems, calc=False):
     if len(problems) > 5:
         return ERR_SIZE
 
+    #set out the regex for later
+    regex = re.compile(problems, r'^[0-9]{1,4}$')
     #create your list
     listref = []
 
@@ -31,8 +33,12 @@ def arithmetic_arranger(problems, calc=False):
         ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
         if len(a) > 4 or len(b) > 4:
             return ERR_LEN
+        ##PROBLEM STATEMENTS IF SOMETHING GOES WRONG
+        if regex.match(a) is None or regex.match(b) is None:
+            return ERR_LEN
 
-        regex = re.findall(r'^[0-9]+')
+        ## All errors that are required are covered now.
+        ## Onto the fun stuff!
         listref.append((a,op,b))
 
 
