@@ -1,4 +1,2 @@
-This is the first exercise for the Freecodecamp.com course entitled:
-"Scientific Computing with Python". This exercise is to create a arithmetic calculator that can deal with addition and subtraction.
-
-I will copy the guidelines in the original readme file to this readme at a later date. 
+These exercises are from freeCodeCamp.com. These five exercises and the associated lectures are the prerequisites for completing the "Scientific Computing with Python" course.
+Upon completion of the course, the certificate of completion will be located on this repo.
