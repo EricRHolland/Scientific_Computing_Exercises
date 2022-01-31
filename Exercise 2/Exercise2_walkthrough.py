@@ -43,7 +43,15 @@ class Category:
     def get_balance(self):
         return self.balance
 
-    def
+    def transfer(self,amount,other_category):
+        if not self.withdraw(amount, "Transfer to" + other_category.name):
+            return False
+
+        other_category.deposit(amount, "Transfer from" + self.name)
+        return True
+
+
+
 
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
