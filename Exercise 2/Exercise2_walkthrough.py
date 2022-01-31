@@ -52,17 +52,30 @@ class Category:
         items = ""
         for entry in self.ledger
         stringtit = [self.name.center(30,"*")]
+
+        ### redo this because I'm not even sure if it is correct.
         for entry in self.ledger:
             items = ( "{entry.get('description')[:23]:23}"
             + "{entry.get('amount'):>7.2f}" + "\n")
         return title_row + items + "Total: " + "{self.income:.2f}"
-        
+
 
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
-    for cat in category_list:
-        if cat not in categories:
+    plot = "Percentage spent by category\n"
 
+    total_spent = sum(a.spent for a in category_list)
+
+    percentages = [(a.spent / total_spent) / 0.01 for a in category_list]
+
+    for p_value in range (100,-10,-10):
+        plot += str(p_value).rjust(3, " ") + "|"
+        for percentage in percentages:
+            if percentage >= p_value:
+                plot = plot + " o "
+            else:
+                plot += " " * 3
+        
 
 
 class Category:
