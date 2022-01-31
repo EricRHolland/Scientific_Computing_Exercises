@@ -5,11 +5,6 @@
 """
 
 
-
-
-
-
-
 # Ledger will contain a list of tuples
 
 class Category:
@@ -32,30 +27,36 @@ class Category:
     def withdraw(self, amount, description = ""):
         if self.check_funds(amount):
             self.balance = self.balance - amount
-
+            self.spent = self.spent + amount
             self.ledger.append({
                 'amount' : -amount,
                 'description' : description,
                 })
             return True
+        else:
+            return False
 
     def get_balance(self):
         return self.balance
 
     def transfer(self,amount,other_category):
-        if not self.withdraw(amount, "Transfer to" + other_category.name):
+        if self.check_funds(amount):
+            self.withdraw(amount, "Transfer to" + other_category.name)
+            other_category.deposit(amount, "Transfer from" + self.name)
+            return True
+        else:
             return False
-
-        other_category.deposit(amount, "Transfer from" + self.name)
-        return True
-
-
 
     def __str__(self):
         title_row = self.category_list.center(30,"*") + "\n"
         items = ""
         for entry in self.ledger
-
+        stringtit = [self.name.center(30,"*")]
+        for entry in self.ledger:
+            items = ( "{entry.get('description')[:23]:23}"
+            + "{entry.get('amount'):>7.2f}" + "\n")
+        return title_row + items + "Total: " + "{self.income:.2f}"
+        
 
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
