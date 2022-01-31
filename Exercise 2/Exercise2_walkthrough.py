@@ -18,7 +18,8 @@ class Category:
         self.balance = 0
         self.ledger = []
 
-    def check_funds(self,amount)
+    def check_funds(self, amount):
+        return self.balance >= amount
 
     def deposit(self, amount, description=""):
         self.ledger.append({
@@ -39,6 +40,10 @@ class Category:
             })
         return True
 
+    def get_balance(self):
+        return self.balance
+
+    def
 
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
