@@ -1,10 +1,4 @@
-
-"""
-        problems (list[str]): Input list with problems
-        calculate_solution Defaults to False.
-"""
-
-
+## Eric H creation from January 2022 - completed
 # Ledger will contain a list of tuples
 
 class Category:
