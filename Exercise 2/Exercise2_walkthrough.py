@@ -75,23 +75,5 @@ def create_spend_chart(category_list):
                 plot = plot + " o "
             else:
                 plot += " " * 3
-        
 
-
-class Category:
-    categorie : str
-    ledger: List[Dict[str, Union[str, int, float]]] = field(default_factory = list)
-
-
-
-
-
-    def deposit(self):
-
-    def withdraw(self):
-
-    def get_balance(self):
-
-    def transfer(self):
-
-    def check_funds(self):
+        plot = plot + " \n"
