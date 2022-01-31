@@ -27,4 +27,4 @@ check_funds =
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
     for cat in category_list:
-        if cat not in categories:
+        if cat not in categories:   
