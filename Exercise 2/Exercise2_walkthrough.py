@@ -77,3 +77,26 @@ def create_spend_chart(category_list):
                 plot += " " * 3
 
         plot = plot + " \n"
+
+    ## Create the x axis after you figure out what's going on above this.
+    plot = plot + " " * 4 + "-" * 3 * len(pencentages) + "-\n"
+
+    ## base it off the length of the longest category.
+    longest_name = max(len(a.name) for a in category_list)
+
+    for ch in range(longest_name):
+        #start with 4 spaces? Why do we have to start with 4 spaces?
+        plot = plot + " " * 4
+
+        for namer in category_list:
+            #attach namer to the row to get the vertical names
+            if ch < len(namer.name):
+                plot += " " + namer.name[ch] + " "
+            else:
+                # If there is nothing attached, add 3 spaces so it's the end of the line
+                plot += " " * 3
+        plot += " \n"
+
+    plot = plot.rstrip() + " " * 2
+
+    return plot
