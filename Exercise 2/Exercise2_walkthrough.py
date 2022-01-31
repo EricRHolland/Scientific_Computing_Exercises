@@ -3,28 +3,64 @@
         problems (list[str]): Input list with problems
         calculate_solution Defaults to False.
 """
-categories = ['food','clothing','entertainment']
-ledger = []
+
+
+
+
+
+
+
 # Ledger will contain a list of tuples
 
- class Category(object):
-    """docstring for ."""
+class Category:
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+        self.ledger = []
 
-    def __init__(self, arg):
-        super(, self).__init__()
-        self.arg = arg
+    def check_funds(self,amount)
 
-description_to_show = description[:23]
+    def deposit(self, amount, description=""):
+        self.ledger.append({
+            'amount': amount,
+            'description': description,
+            })
+        self.balance = self.balance + amount
 
-ledger_amt = float(amount)
+    def withdraw(self, amount, description = ""):
+        if not self.check_funds(amount):
+            return False
 
+        self.balance = self.balance - amount
 
-withdraw = 0-amount
-deposit = 0+amount
-check_funds =
+        self.ledger.append({
+            'amount' : -amount,
+            'description' : description,
+            })
+        return True
 
 
 def create_spend_chart(category_list):
     #Will be tested with up to 4 categories.
     for cat in category_list:
-        if cat not in categories:   
+        if cat not in categories:
+
+
+
+class Category:
+    categorie : str
+    ledger: List[Dict[str, Union[str, int, float]]] = field(default_factory = list)
+
+
+
+
+
+    def deposit(self):
+
+    def withdraw(self):
+
+    def get_balance(self):
+
+    def transfer(self):
+
+    def check_funds(self):
